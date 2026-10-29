@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <h2>My Dashboard</h2>
+    <button id="themeBtn">Change Theme</button>
+  </header>
+
+  <div class="dashboard">
+    <aside class="sidebar">
+      <h3>Menu</h3>
+      <a href="#overview">Overview</a>
+      <a href="#projects">Projects</a>
+      <a href="#reports">Reports</a>
+      <a href="#settings">Settings</a>
+    </aside>
+
+    <main class="main-content" id="overview">
+      <h1>Welcome Back!</h1>
+      <p>Here is your dashboard overview.</p>
+
+      <section class="cards" id="projects">
+        <div class="card">
+          <h3>Total Projects</h3>
+          <p>24</p>
+        </div>
+        <div class="card">
+          <h3>Completed</h3>
+          <p>18</p>
+        </div>
+        <div class="card">
+          <h3>Pending</h3>
+          <p>6</p>
+        </div>
+      </section>
+
+      <section class="panel" id="reports">
+        <h2>Recent Activity</h2>
+        <p>Dashboard design completed successfully.</p>
+        <p>Responsive layout is ready for testing.</p>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

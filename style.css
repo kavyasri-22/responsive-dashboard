@@ -1,0 +1,184 @@
+
+/* 1. Design tokens */
+:root {
+  --primary: #5b4bdb;
+  --background: #f4f5fb;
+  --surface: #ffffff;
+  --text: #22243a;
+  --muted: #666b80;
+  --spacing: 20px;
+  --radius: 16px;
+  --shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* 2. Dark theme variables */
+body.dark {
+  --background: #171827;
+  --surface: #25273a;
+  --text: #f5f5ff;
+  --muted: #c0c3d6;
+  --shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* 3. Basic styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: var(--spacing);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.85;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: var(--spacing);
+  padding: var(--spacing);
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: var(--spacing);
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.sidebar a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.sidebar a:hover {
+  color: var(--primary);
+}
+
+.main-content {
+  min-width: 0;
+}
+
+.main-content > p {
+  color: var(--muted);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--spacing);
+  margin: 24px 0;
+}
+
+.card,
+.panel {
+  padding: var(--spacing);
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.card {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.card h3 {
+  font-size: 1rem;
+}
+
+.card p {
+  color: var(--primary);
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* 4. Glassmorphism effect */
+.panel {
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(128, 128, 128, 0.15);
+}
+
+/* 5. Tablet layout: 768px to 1023px */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .dashboard {
+    grid-template-columns: 180px minmax(0, 1fr);
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* 6. Mobile layout: below 768px */
+@media (max-width: 767px) {
+  :root {
+    --spacing: 14px;
+  }
+
+  .header h2 {
+    font-size: 1.1rem;
+  }
+
+  .dashboard {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sidebar {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* 7. Extra-small mobile screens */
+@media (max-width: 360px) {
+  .header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .sidebar {
+    gap: 12px;
+  }
+}
